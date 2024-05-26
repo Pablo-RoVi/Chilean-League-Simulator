@@ -1,0 +1,153 @@
+1,8
+Curicó Unido-Deportes Copiapo
+Everton-O'Higgins
+Colo Colo-Unión La Calera
+Unión Española-Coquimbo Unido
+Palestino-CD Cobreloa
+Huachipato-Cobresal
+Ñublense-Universidad Católica
+Audax Italiano-Deportes Iquique
+2,8
+CD Cobreloa-Everton
+Unión La Calera-Unión Española
+Deportes Copiapo-Ñublense
+Universidad de Chile-Huachipato
+Cobresal-Colo Colo
+Deportes Iquique-Curicó Unido
+Universidad Católica-Palestino
+O'Higgins-Audax Italiano
+3,8
+Unión Española-Deportes Copiapo
+Audax Italiano-Universidad Católica
+Deportes Iquique-Universidad de Chile
+Coquimbo Unido-Unión La Calera
+Colo Colo-O'Higgins
+Ñublense-Cobresal
+Palestino-Everton
+Curicó Unido-CD Cobreloa
+4,8
+Deportes Copiapo-Palestino
+Huachipato-Ñublense
+Universidad Católica-Curicó Unido
+O'Higgins-Deportes Iquique
+Unión La Calera-Audax Italiano
+Cobresal-Coquimbo Unido
+Everton-Colo Colo
+Universidad de Chile-Unión Española
+5,8
+Curicó Unido-Everton
+CD Cobreloa-Cobresal
+Deportes Iquique-Unión Española
+O'Higgins-Unión La Calera
+Coquimbo Unido-Ñublense
+Colo Colo-Universidad de Chile
+Audax Italiano-Deportes Copiapo
+Palestino-Huachipato
+6,8
+Everton-Deportes Iquique
+Unión La Calera-CD Cobreloa
+Unión Española-Audax Italiano
+Ñublense-Colo Colo
+Cobresal-Curicó Unido
+Huachipato-O'Higgins
+Deportes Copiapo-Universidad Católica
+Universidad de Chile-Coquimbo Unido
+7,8
+O'Higgins-Unión Española
+Universidad Católica-Unión La Calera
+Deportes Iquique-Ñublense
+Coquimbo Unido-Deportes Copiapo
+Colo Colo-Palestino
+Curicó Unido-Huachipato
+CD Cobreloa-Universidad de Chile
+Audax Italiano-Cobresal
+8,8
+Cobresal-Deportes Iquique
+Ñublense-Curicó Unido
+Coquimbo Unido-O'Higgins
+Unión Española-Universidad Católica
+Deportes Copiapo-CD Cobreloa
+Huachipato-Colo Colo
+Universidad de Chile-Everton
+Palestino-Audax Italiano
+9,8
+Curicó Unido-Unión Española
+Deportes Iquique-Deportes Copiapo
+O'Higgins-Palestino
+Everton-Coquimbo Unido
+Universidad Católica-Cobresal
+CD Cobreloa-Huachipato
+Unión La Calera-Ñublense
+Audax Italiano-Universidad de Chile
+10,8
+Cobresal-Unión La Calera
+Coquimbo Unido-Universidad Católica
+Palestino-Universidad de Chile
+Huachipato-Everton
+Unión Española-CD Cobreloa
+Colo Colo-Deportes Iquique
+Deportes Copiapo-O'Higgins
+Ñublense-Audax Italiano
+11,8
+O'Higgins-Cobresal
+CD Cobreloa-Coquimbo Unido
+Unión La Calera-Curicó Unido
+Universidad Católica-Colo Colo
+Audax Italiano-Huachipato
+Everton-Ñublense
+Deportes Iquique-Palestino
+Universidad de Chile-Deportes Copiapo
+12,8
+Everton-Unión Española
+Ñublense-CD Cobreloa
+Deportes Copiapo-Unión La Calera
+Colo Colo-Audax Italiano
+Huachipato-Deportes Iquique
+Palestino-Coquimbo Unido
+Curicó Unido-Universidad de Chile
+Universidad Católica-O'Higgins
+13,8
+Audax Italiano-Everton
+Cobresal-Deportes Copiapo
+Unión Española-Huachipato
+O'Higgins-Curicó Unido
+Unión La Calera-Palestino
+CD Cobreloa-Universidad Católica
+Coquimbo Unido-Colo Colo
+Universidad de Chile-Ñublense
+14,8
+Huachipato-Unión La Calera
+Palestino-Unión Española
+Universidad de Chile-Universidad Católica
+Deportes Copiapo-Colo Colo
+Deportes Iquique-CD Cobreloa
+Ñublense-O'Higgins
+Curicó Unido-Coquimbo Unido
+Everton-Cobresal
+15,8
+O'Higgins-Universidad de Chile
+Unión Española-Ñublense
+Universidad Católica-Deportes Iquique
+Coquimbo Unido-Huachipato
+CD Cobreloa-Audax Italiano
+Colo Colo-Curicó Unido
+Unión La Calera-Everton
+Cobresal-Palestino
+16,8
+Audax Italiano-Coquimbo Unido
+CD Cobreloa-O'Higgins
+Deportes Iquique-Unión La Calera
+Unión Española-Colo Colo
+Everton-Deportes Copiapo
+Palestino-Curicó Unido
+Universidad de Chile-Cobresal
+Huachipato-Universidad Católica
+17,8
+Coquimbo Unido-Deportes Iquique
+Ñublense-Palestino
+Colo Colo-CD Cobreloa
+Curicó Unido-Audax Italiano
+Cobresal-Unión Española
+Deportes Copiapo-Huachipato
+Unión La Calera-Universidad de Chile
+Universidad Católica-Everton

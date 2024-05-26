@@ -1,0 +1,17 @@
+Audax Italiano,65,64,66,0.4,Bicentenario de La Florida
+Cobresal,68,65,64,0.4,El Cobre
+Colo Colo,71,70,71,0.6,Monumental David Arellano
+Coquimbo Unido,68,62,65,0.4,Francisco Sánchez Rumoroso
+Curicó Unido,64,66,66,0.4,La Granja
+CD Cobreloa,68,67,66,0.5,Municipal Zorros del Desierto
+Deportes Iquique,65,67,67,0.4,Tierra de Campeones
+Everton,69,64,67,0.5,Sausalito
+Huachipato,69,66,66,0.4,Huachipato-CAP Acero
+Ñublense,66,66,65,0.4,Municipal de Chillán Nelson Oyarzún Arenas
+O'Higgins,66,68,66,0.4,El Teniente
+Palestino,69,68,65,0.5,Municipal de La Cisterna
+Unión Española,69,65,66,0.4,Santa Laura
+Unión La Calera,66,66,68,0.4,Municipal Nicolás Chahuán Nazar
+Universidad Católica,72,67,71,0.6,San Carlos de Apoquindo
+Universidad de Chile,68,66,68,0.5,Nacional Julio Martínez Prádanos
+Deportes Copiapo,64,67,64,0.4,Municipal Luis Valenzuela Hermosilla
