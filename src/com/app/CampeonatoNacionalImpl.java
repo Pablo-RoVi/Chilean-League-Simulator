@@ -66,6 +66,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
             int golesLocal = 0, golesVisitante = 0;
             Equipo local = partidoNodo.getPartido().getLocal();
             Equipo visitante = partidoNodo.getPartido().getVisitante();
+
             // Si el ataque local es mayor a la defensa visitante, sumar un gol al local
             if((Math.random()*(local.getDelantera())) > (Math.random()*(visitante.getDefensa()))){
                 golesLocal += 1;
@@ -145,18 +146,24 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
             if(golesLocal > golesVisitante){
                 System.out.println(
                     "[" + "\u001B[32m" + local.getNombre() + "\u001B[0m" + "]  " + golesLocal +
-                    " : " + golesVisitante+"  [" + "\u001B[31m" +visitante.getNombre()
-                    + "\u001B[0m" +"]  |  Estadio: " + partidoNodo.getPartido().getEstadio());
+                    " : " + golesVisitante+"  [" + "\u001B[31m" +visitante.getNombre() +
+                    "\u001B[0m" +"]  |  Estadio: " + partidoNodo.getPartido().getEstadio());
             }
 
             // Si gana el visitante, colocar el nombre en verde y al local en rojo
             else if(golesLocal < golesVisitante){
-                System.out.println("["+ "\u001B[31m" +local.getNombre()+ "\u001B[0m" + "]  "+golesLocal+" : "+golesVisitante+"  [" + "\u001B[32m" +visitante.getNombre()+ "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
+                System.out.println(
+                    "[" + "\u001B[31m" +local.getNombre() + "\u001B[0m" + "]  " + golesLocal +
+                    " : " + golesVisitante + "  [" + "\u001B[32m" + visitante.getNombre() +
+                    "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
             }
 
             // Si empataron, colocar ambos nombres en amarillo
             else{
-                System.out.println("["+ "\u001B[33m" +local.getNombre()+ "\u001B[0m" + "]  "+golesLocal+" : "+golesVisitante+"  [" + "\u001B[33m" +visitante.getNombre()+ "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
+                System.out.println(
+                    "[" + "\u001B[33m" + local.getNombre() + "\u001B[0m" + "]  " + golesLocal +
+                    " : " + golesVisitante + "  [" + "\u001B[33m" + visitante.getNombre() +
+                    "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
             }
 
             // Si no hay más partidos, terminar el ciclo
