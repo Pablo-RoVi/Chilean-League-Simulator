@@ -42,7 +42,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                     Equipo visitante = equipos.buscarEquipo(partidoArchivo[1]);
                     Partido nuevoPartido1 = new Partido(fecha, local, visitante, local.getEstadio());
                     partidos.agregarPartido(nuevoPartido1);
-                    Partido nuevoPartido2 = new Partido(fecha+17, visitante, local, visitante.getEstadio());
+                    Partido nuevoPartido2 = new Partido(fecha + 17, visitante, local, visitante.getEstadio());
                     partidos.agregarPartido(nuevoPartido2);
                 }
             }
@@ -57,55 +57,119 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
     public void jugarPartido(int fecha){
         NodoPartido partidoNodo = partidos.getHead();
         System.out.println("                FECHA N°"+fecha);
-        while(partidoNodo.getPartido().getFecha() != fecha){ partidoNodo = partidoNodo.getNext(); }
+        while(partidoNodo.getPartido().getFecha() != fecha){
+            partidoNodo = partidoNodo.getNext();
+        }
+
+        // Recorrer todos los partidos de la fecha
         while(partidoNodo.getPartido().getFecha() == fecha){
             int golesLocal = 0, golesVisitante = 0;
             Equipo local = partidoNodo.getPartido().getLocal();
             Equipo visitante = partidoNodo.getPartido().getVisitante();
-            if((Math.random()*(local.getDelantera())) > (Math.random()*(visitante.getDefensa()))){ golesLocal+=1; }
-            else if((Math.random()*(visitante.getDelantera())) > (Math.random()*(local.getDefensa()))){ golesVisitante+=1; }
-            if((Math.random()*(local.getMedioCampo())) > (Math.random()*(visitante.getMedioCampo()))){ golesLocal+=1; }
-            else if((Math.random()*(visitante.getMedioCampo())) > (Math.random()*(local.getMedioCampo()))){ golesVisitante+=1; }
-            if((Math.random()*(local.getEstrella())) > (Math.random()*(visitante.getEstrella()))){ golesLocal+=1; }
-            else{ golesVisitante+=1; }
-            local.setGolesAFavor(local.getGolesAFavor()+golesLocal);
-            local.setGolesEnContra(local.getGolesEnContra()+golesVisitante);
-            visitante.setGolesAFavor(visitante.getGolesAFavor()+golesVisitante);
-            visitante.setGolesEnContra(visitante.getGolesEnContra()+golesLocal);
-            visitante.setGolesVisitantes(visitante.getGolesVisitantes()+golesVisitante);
+            // Si el ataque local es mayor a la defensa visitante, sumar un gol al local
+            if((Math.random()*(local.getDelantera())) > (Math.random()*(visitante.getDefensa()))){
+                golesLocal += 1;
+            }
+
+            // Si el ataque visitante es mayor a la defensa local, sumar un gol al visitante
+            else if((Math.random()*(visitante.getDelantera())) > (Math.random()*(local.getDefensa()))){
+                golesVisitante += 1;
+            }
+
+            // Si el medio campo local es mayor al medio campo visitante, sumar un gol al local
+            if((Math.random()*(local.getMedioCampo())) > (Math.random()*(visitante.getMedioCampo()))){
+                golesLocal += 1;
+            }
+
+            // Si el medio campo visitante es mayor al medio campo local, sumar un gol al visitante
+            else if((Math.random()*(visitante.getMedioCampo())) > (Math.random()*(local.getMedioCampo()))){
+                golesVisitante += 1;
+            }
+
+            // Si el local es mayor al visitante, sumar un gol al local
+            if((Math.random()*(local.getEstrella())) > (Math.random()*(visitante.getEstrella()))){
+                golesLocal += 1;
+            }
+
+            // Si el visitante es mayor al local, sumar un gol al visitante
+            else{
+                golesVisitante += 1;
+            }
+
+            // Sumar los goles a favor y en contra de los equipos que jugaron
+            local.setGolesAFavor(local.getGolesAFavor() + golesLocal);
+            local.setGolesEnContra(local.getGolesEnContra() + golesVisitante);
+            visitante.setGolesAFavor(visitante.getGolesAFavor() + golesVisitante);
+            visitante.setGolesEnContra(visitante.getGolesEnContra() + golesLocal);
+            visitante.setGolesVisitantes(visitante.getGolesVisitantes() + golesVisitante);
+
+            // Si gana el local, sumar en la estadística:
+            // - 3 puntos para el local
+            // - 1 partido ganado para el local
+            // - 1 partido perdido al visitante
             if(golesLocal > golesVisitante){
-                local.setPuntos(local.getPuntos()+3);
-                local.setPartidosGanados(local.getPartidosGanados()+1);
-                visitante.setPartidosPerdidos(visitante.getPartidosPerdidos()+1);
+                local.setPuntos(local.getPuntos() + 3);
+                local.setPartidosGanados(local.getPartidosGanados() + 1);
+                visitante.setPartidosPerdidos(visitante.getPartidosPerdidos() + 1);
             }
+
+            // Si gana el visitante, sumar en la estadística:
+            // - 3 puntos para el visitante
+            // - 1 partido ganado para el visitante
+            // - 1 partido perdido al local
             else if(golesLocal < golesVisitante){
-                visitante.setPuntos(visitante.getPuntos()+3);
-                visitante.setPartidosGanados(visitante.getPartidosGanados()+1);
-                local.setPartidosPerdidos(local.getPartidosPerdidos()+1);
+                visitante.setPuntos(visitante.getPuntos() + 3);
+                visitante.setPartidosGanados(visitante.getPartidosGanados() + 1);
+                local.setPartidosPerdidos(local.getPartidosPerdidos() + 1);
             }
+
+            // Si empatan, sumar en la estadística:
+            // - 1 punto para ambos equipos
+            // - 1 partido empatado para el local
+            // - 1 partido empatado para el visitante
             else {
-                local.setPuntos(local.getPuntos()+1);
-                local.setPartidosEmpates(local.getPartidosEmpates()+1);
-                visitante.setPuntos(visitante.getPuntos()+1);
-                visitante.setPartidosEmpates(visitante.getPartidosEmpates()+1);
+                local.setPuntos(local.getPuntos() + 1);
+                local.setPartidosEmpates(local.getPartidosEmpates() + 1);
+                visitante.setPuntos(visitante.getPuntos() + 1);
+                visitante.setPartidosEmpates(visitante.getPartidosEmpates() + 1);
 
             }
-            if(seguir.contains(equipos.buscarEquipo(local.getNombre())) || seguir.contains(equipos.buscarEquipo(visitante.getNombre()))){ System.out.print("\u001B[36m" +"★"+ "\u001B[0m"); }
-            if(golesLocal > golesVisitante){
-                System.out.println("["+ "\u001B[32m" +local.getNombre()+ "\u001B[0m" + "]  "+golesLocal+" : "+golesVisitante+"  [" + "\u001B[31m" +visitante.getNombre()+ "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
+
+            // Si se sigue a algún equipo del partido, colocar una estrella al lado del resultado
+            if(seguir.contains(equipos.buscarEquipo(local.getNombre())) ||
+                    seguir.contains(equipos.buscarEquipo(visitante.getNombre()))) {
+                System.out.print("\u001B[36m" +"★"+ "\u001B[0m");
             }
+
+            // Si gana el local, colocar el nombre en verde y al visitante en rojo
+            if(golesLocal > golesVisitante){
+                System.out.println(
+                    "[" + "\u001B[32m" + local.getNombre() + "\u001B[0m" + "]  " + golesLocal +
+                    " : " + golesVisitante+"  [" + "\u001B[31m" +visitante.getNombre()
+                    + "\u001B[0m" +"]  |  Estadio: " + partidoNodo.getPartido().getEstadio());
+            }
+
+            // Si gana el visitante, colocar el nombre en verde y al local en rojo
             else if(golesLocal < golesVisitante){
                 System.out.println("["+ "\u001B[31m" +local.getNombre()+ "\u001B[0m" + "]  "+golesLocal+" : "+golesVisitante+"  [" + "\u001B[32m" +visitante.getNombre()+ "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
             }
+
+            // Si empataron, colocar ambos nombres en amarillo
             else{
                 System.out.println("["+ "\u001B[33m" +local.getNombre()+ "\u001B[0m" + "]  "+golesLocal+" : "+golesVisitante+"  [" + "\u001B[33m" +visitante.getNombre()+ "\u001B[0m" +"]  |  Estadio: "+partidoNodo.getPartido().getEstadio());
             }
+
+            // Si no hay más partidos, terminar el ciclo
             if(partidoNodo.getNext() == null){
                 break;
             }
+
             partidoNodo = partidoNodo.getNext();
         }
+
         equipos.ordenarLista();
+
+        // Si se juega la última fecha, añadir a la lista de campeones al equipo que se encuentra en primer lugar
         if(fecha == 34){
             campeones.add(equipos.getEquipo(0).getNombre());
         }
@@ -121,36 +185,123 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
             int PG = equipos.getEquipo(i).getPartidosGanados();
             int PE = equipos.getEquipo(i).getPartidosEmpates();
             int PP = equipos.getEquipo(i).getPartidosPerdidos();
-            int PJ = PG+PE+PP;
+            int PJ = PG+PE+PP; // Partidos totales jugados
             int GF = equipos.getEquipo(i).getGolesAFavor();
             int GC = equipos.getEquipo(i).getGolesEnContra();
-            int DG = GF - GC;
+            int DG = GF - GC; // Goles de diferencia
             int PTS = equipos.getEquipo(i).getPuntos();
             if(seguir.contains(equipos.buscarEquipo(nombre))){ System.out.print("\u001B[36m" +"★ "+ "\u001B[0m"); }
             else{ System.out.print("  "); }
             if(i+1 < 10){
+                // Mostrar en amarillo el primer lugar
                 if(i == 0){
-                    System.out.println("\u001B[33m"+(i+1)+".  "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS+"\u001B[0m");
+                    System.out.println(
+                            "\u001B[33m" + (i + 1)
+                            + ".  " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS
+                            + "\u001B[0m");
                 }
+
+                // Mostrar en celeste los puestos de copa libertadores
                 else if(i == 1 || i == 2){
-                    System.out.println("\u001B[34m"+(i+1)+".  "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS+"\u001B[0m");
+                    System.out.println(
+                            "\u001B[34m" + (i + 1)
+                            + ".  " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS
+                            + "\u001B[0m");
                 }
+
+                // Mostrar en cyan los puesto de copa sudamericana
                 else if(i == 3 || i == 4 || i == 5 || i == 6){
-                    System.out.println("\u001B[36m"+(i+1)+".  "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS+"\u001B[0m");
+                    System.out.println(
+                            "\u001B[36m" + (i + 1)
+                            + ".  " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS
+                            + "\u001B[0m");
                 }
+
+                // Mostrar en blanco los puestos normales
                 else{
-                    System.out.println((i+1)+".  "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS);
+                    System.out.println(
+                            (i + 1)
+                            + ".  " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : "+PTS);
                 }
             }
             else{
+                //Mostrar en morado el puesto que disputa liguilla de promoción
                 if(i == 14){
-                    System.out.println("\u001B[35m"+(i+1)+". "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS+"\u001B[0m");
+                    System.out.println(
+                            "\u001B[35m" + (i + 1)
+                            + ". " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS
+                            + "\u001B[0m");
                 }
+
+                // Mostrar en rojo los puestos de descenso
                 else if (i == 15 || i == 16) {
-                    System.out.println("\u001B[31m"+(i+1)+". "+nombre+" | PJ : "+PJ+" | PG : "+PG+" | PE : "+PE+" | PP : "+PP+" | GF : "+GF+" | GC : "+GC+" | DG : "+DG+" | PTS : "+PTS+"\u001B[0m");
+                    System.out.println(
+                            "\u001B[31m" + (i + 1)
+                            + ". " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS
+                            + "\u001B[0m");
                 }
+
+                // Mostrar en blanco los puestos normales
                 else {
-                    System.out.println((i + 1) + ". " + nombre + " | PJ : " + PJ + " | PG : " + PG + " | PE : " + PE + " | PP : " + PP + " | GF : " + GF + " | GC : " + GC + " | DG : " + DG + " | PTS : " + PTS);
+                    System.out.println(
+                            (i + 1)
+                            + ". " + nombre
+                            + " | PJ : " + PJ
+                            + " | PG : " + PG
+                            + " | PE : " + PE
+                            + " | PP : " + PP
+                            + " | GF : " + GF
+                            + " | GC : " + GC
+                            + " | DG : " + DG
+                            + " | PTS : " + PTS);
                 }
             }
         }
@@ -162,8 +313,8 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
     public void mostrarResultados(){
         equipos.ordenarLista();
         int campeon = 0;
-        for(int i = 0; i < campeones.size(); i++){
-            if(this.campeones.get(i).equals(equipos.getEquipo(0).getNombre())){
+        for (String campeones : campeones) {
+            if (campeones.equals(equipos.getEquipo(0).getNombre())) {
                 campeon++;
             }
         }
@@ -225,12 +376,12 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
      * Mostrar los campeones de cada año.
      */
     @Override
-    public void campeonesPorAño(){
+    public void campeonesPorAnio(){
         int ano = 2021;
         System.out.println("█████████████████████████████████████████████████████████████████████████████████████");
-        for(int i = 0; i < campeones.size(); i++){
-            System.out.println("AÑO: "+ano);
-            System.out.println("CAMPEÓN: "+campeones.get(i));
+        for (String campeones : campeones) {
+            System.out.println("AÑO: " + ano);
+            System.out.println("CAMPEÓN: " + campeones);
             System.out.println("══════════════════════════");
             ano++;
         }

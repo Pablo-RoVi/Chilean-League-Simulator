@@ -34,7 +34,6 @@ public class Main {
                 System.out.print("Ingrese una opción: ");
                 int opcion = scanner.nextInt();
                 System.out.println("█████████████████████████████████████████████████████████████████████████████████████");
-                System.out.println("");
                 switch (opcion) {
                     case 1 -> {
                         if(partido == 35){
@@ -49,7 +48,7 @@ public class Main {
                         if(partido == 35){ sistema.mostrarResultados(); }
                         else{ System.out.println("El campeonato aún no termina para saber los resultados."); }
                     }
-                    case 4 -> sistema.campeonesPorAño();
+                    case 4 -> sistema.campeonesPorAnio();
                     case 5 -> salir = true;
                     case 6 -> {
                         sistema.reiniciarCampeonato();

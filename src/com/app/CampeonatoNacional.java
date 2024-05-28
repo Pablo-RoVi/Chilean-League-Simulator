@@ -6,6 +6,6 @@ public interface CampeonatoNacional {
     void mostrarTabla();
     void mostrarResultados();
     void agregarEquipos(int cantidad);
-    void campeonesPorAño();
+    void campeonesPorAnio();
     void reiniciarCampeonato();
 }
