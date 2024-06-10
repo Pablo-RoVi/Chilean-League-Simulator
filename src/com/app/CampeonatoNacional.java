@@ -8,4 +8,5 @@ public interface CampeonatoNacional {
     void agregarEquipos(int cantidad);
     void campeonesPorAnio();
     void reiniciarCampeonato();
+    void jugarTemporadaCompleta();
 }

@@ -45,19 +45,32 @@ public class Main {
                     }
                     case 2 -> sistema.mostrarTabla();
                     case 3 -> {
-                        if(partido == 35){ sistema.mostrarResultados(); }
-                        else{ System.out.println("El campeonato aún no termina para saber los resultados."); }
+                        if(partido == 35){
+                            sistema.mostrarResultados();
+                        }
+                        else{
+                            System.out.println("El campeonato aún no termina para saber los resultados.");
+                        }
                     }
                     case 4 -> sistema.campeonesPorAnio();
                     case 5 -> salir = true;
                     case 6 -> {
-                        sistema.reiniciarCampeonato();
-                        partido = 1;
-                        ano++;
+                        if(partido == 35){
+                            sistema.reiniciarCampeonato();
+                            partido = 1;
+                            ano++;
+                        }
+                        else {
+                            System.out.println("El campeonato aún no termina para reinicar la temporada.");
+                        }
+                    }
+                    case 7 -> {
+                        sistema.jugarTemporadaCompleta();
+                        partido = 35;
                     }
                     default -> System.out.println("Opción incorrecta.");
                 }
             } catch(InputMismatchException e){ System.out.println("Debe ser un número."); }
         }
-    }
+ }
 }

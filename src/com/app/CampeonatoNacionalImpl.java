@@ -319,22 +319,25 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
     @Override
     public void mostrarResultados(){
         equipos.ordenarLista();
-        int campeon = 0;
-        for (String campeones : campeones) {
-            if (campeones.equals(equipos.getEquipo(0).getNombre())) {
-                campeon++;
+        int vecesCampeon = 0;
+        for (String campeon : campeones) {
+            if (campeon.equals(equipos.getEquipo(0).getNombre())) {
+                vecesCampeon++;
+            }
+            else {
+                vecesCampeon = 0;
             }
         }
-        if(campeon == 2){
+        if(vecesCampeon == 2){
             System.out.println("♛★★♛BICAMPEÓN♛★★♛");
         }
-        else if(campeon == 3){
+        else if(vecesCampeon == 3){
             System.out.println("♛★★TRICAMPEÓN♛★★♛");
         }
-        else if(campeon == 4){
+        else if(vecesCampeon == 4){
             System.out.println("♛★★TETRACAMPEÓN♛★★♛");
         }
-        else if(campeon == 5){
+        else if(vecesCampeon == 5){
             System.out.println("♛★★PENTACAMPEÓN♛★★♛");
         }
         else{
@@ -408,6 +411,16 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
             equipos.getEquipo(i).setGolesVisitantes(0);
             equipos.getEquipo(i).setGolesEnContra(0);
             equipos.getEquipo(i).setPuntos(0);
+        }
+    }
+
+    /**
+     * Jugar la temporada completa
+     */
+    @Override
+    public void jugarTemporadaCompleta(){
+        for(int i = 1; i < 35; i++){
+            jugarPartido(i);
         }
     }
 }
