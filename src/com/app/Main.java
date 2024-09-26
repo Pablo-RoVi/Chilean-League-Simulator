@@ -72,5 +72,6 @@ public class Main {
                 }
             } catch(InputMismatchException e){ System.out.println("Debe ser un número."); }
         }
+        scanner.close();
  }
 }
