@@ -19,7 +19,7 @@ Este repositorio contiene un programa en Java que simula partidos de fútbol de 
 
 ## Instrucciones
 
-Estas instrucciones te ayudarán a configurar y ejecutar el proyecto en tu máquina.
+Estas instrucciones te ayudarán a configurar y ejecutar el proyecto en tu máquina. Cabe recalcar que se debe utilizar un terminal con entorno JavaScript para ejecutar y depurar el código.
 
 ### Prerrequisitos
 
