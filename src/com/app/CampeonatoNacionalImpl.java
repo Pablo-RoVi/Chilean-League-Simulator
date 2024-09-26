@@ -362,7 +362,6 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                 }
             }
         }
-        scanner.close();
     }
 
     /**
@@ -372,7 +371,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
     public void campeonesPorAnio(){
         int ano = 2021;
         System.out.println("█████████████████████████████████████████████████████████████████████████████████████");
-        for (String campeones : campeones) {
+        for (String campeones : this.campeones) {
             System.out.println("AÑO: " + ano);
             System.out.println("CAMPEÓN: " + campeones);
             System.out.println("══════════════════════════");
