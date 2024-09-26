@@ -202,115 +202,103 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
             if(seguir.contains(equipos.buscarEquipo(nombre))){ System.out.print("\u001B[36m" +"★ "+ "\u001B[0m"); }
             else{ System.out.print("  "); }
             if(i+1 < 10){
-                // Mostrar en amarillo el primer lugar
-                if(i == 0){
-                    System.out.println(
-                            "\u001B[33m" + (i + 1)
-                            + ".  " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS
-                            + "\u001B[0m");
-                }
-
-                // Mostrar en celeste los puestos de copa libertadores
-                else if(i == 1 || i == 2){
-                    System.out.println(
-                            "\u001B[34m" + (i + 1)
-                            + ".  " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS
-                            + "\u001B[0m");
-                }
-
-                // Mostrar en cyan los puesto de copa sudamericana
-                else if(i == 3 || i == 4 || i == 5 || i == 6){
-                    System.out.println(
+                switch (i) {
+                    case 0 -> // Primer lugar (en amarillo)
+                        System.out.println(
+                                "\u001B[33m" + (i + 1)
+                                + ".  " + nombre
+                                + " | PJ : " + PJ
+                                + " | PG : " + PG
+                                + " | PE : " + PE
+                                + " | PP : " + PP
+                                + " | GF : " + GF
+                                + " | GC : " + GC
+                                + " | DG : " + DG
+                                + " | PTS : " + PTS
+                                + "\u001B[0m");
+                        
+                    case 1, 2 -> // Puestos de Copa Libertadores (en celeste)
+                        System.out.println(
+                                "\u001B[34m" + (i + 1)
+                                        + ".  " + nombre
+                                        + " | PJ : " + PJ
+                                        + " | PG : " + PG
+                                        + " | PE : " + PE
+                                        + " | PP : " + PP
+                                        + " | GF : " + GF
+                                        + " | GC : " + GC
+                                        + " | DG : " + DG
+                                        + " | PTS : " + PTS
+                                        + "\u001B[0m");
+                    case 3, 4, 5, 6 ->  // Puestos de Copa Sudamericana (en cyan)
+                        System.out.println(
                             "\u001B[36m" + (i + 1)
-                            + ".  " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS
-                            + "\u001B[0m");
-                }
-
-                // Mostrar en blanco los puestos normales
-                else{
-                    System.out.println(
-                            (i + 1)
-                            + ".  " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : "+PTS);
+                                    + ".  " + nombre
+                                    + " | PJ : " + PJ
+                                    + " | PG : " + PG
+                                    + " | PE : " + PE
+                                    + " | PP : " + PP
+                                    + " | GF : " + GF
+                                    + " | GC : " + GC
+                                    + " | DG : " + DG
+                                    + " | PTS : " + PTS
+                                    + "\u001B[0m");
+                        
+                    default -> // Puestos normales (en blanco)
+                        System.out.println(
+                                (i + 1)
+                                        + ".  " + nombre
+                                        + " | PJ : " + PJ
+                                        + " | PG : " + PG
+                                        + " | PE : " + PE
+                                        + " | PP : " + PP
+                                        + " | GF : " + GF
+                                        + " | GC : " + GC
+                                        + " | DG : " + DG
+                                        + " | PTS : " + PTS);
                 }
             }
             else{
-                //Mostrar en morado el puesto que disputa liguilla de promoción
-                if(i == 14){
-                    System.out.println(
-                            "\u001B[35m" + (i + 1)
-                            + ". " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS
-                            + "\u001B[0m");
-                }
-
-                // Mostrar en rojo los puestos de descenso
-                else if (i == 15 || i == 16) {
-                    System.out.println(
-                            "\u001B[31m" + (i + 1)
-                            + ". " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS
-                            + "\u001B[0m");
-                }
-
-                // Mostrar en blanco los puestos normales
-                else {
-                    System.out.println(
-                            (i + 1)
-                            + ". " + nombre
-                            + " | PJ : " + PJ
-                            + " | PG : " + PG
-                            + " | PE : " + PE
-                            + " | PP : " + PP
-                            + " | GF : " + GF
-                            + " | GC : " + GC
-                            + " | DG : " + DG
-                            + " | PTS : " + PTS);
+                switch (i) {
+                    case 14 -> // Puesto que disputa liguilla de promoción (en morado)
+                        System.out.println(
+                                "\u001B[35m" + (i + 1)
+                                + ". " + nombre
+                                + " | PJ : " + PJ
+                                + " | PG : " + PG
+                                + " | PE : " + PE
+                                + " | PP : " + PP
+                                + " | GF : " + GF
+                                + " | GC : " + GC
+                                + " | DG : " + DG
+                                + " | PTS : " + PTS
+                                + "\u001B[0m");
+                
+                    case 15, 16 -> // Puestos de descenso (en rojo)
+                        System.out.println(
+                                "\u001B[31m" + (i + 1)
+                                        + ". " + nombre
+                                        + " | PJ : " + PJ
+                                        + " | PG : " + PG
+                                        + " | PE : " + PE
+                                        + " | PP : " + PP
+                                        + " | GF : " + GF
+                                        + " | GC : " + GC
+                                        + " | DG : " + DG
+                                        + " | PTS : " + PTS
+                                        + "\u001B[0m");
+                    default -> // Puestos normales (en blanco)
+                        System.out.println(
+                                (i + 1)
+                                        + ". " + nombre
+                                        + " | PJ : " + PJ
+                                        + " | PG : " + PG
+                                        + " | PE : " + PE
+                                        + " | PP : " + PP
+                                        + " | GF : " + GF
+                                        + " | GC : " + GC
+                                        + " | DG : " + DG
+                                        + " | PTS : " + PTS);
                 }
             }
         }
@@ -330,20 +318,12 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                 vecesCampeon = 0;
             }
         }
-        if(vecesCampeon == 2){
-            System.out.println("♛★★♛BICAMPEÓN♛★★♛");
-        }
-        else if(vecesCampeon == 3){
-            System.out.println("♛★★TRICAMPEÓN♛★★♛");
-        }
-        else if(vecesCampeon == 4){
-            System.out.println("♛★★TETRACAMPEÓN♛★★♛");
-        }
-        else if(vecesCampeon == 5){
-            System.out.println("♛★★PENTACAMPEÓN♛★★♛");
-        }
-        else{
-            System.out.println("♛★★♛CAMPEÓN♛★★♛");
+        switch (vecesCampeon) {
+            case 2 -> System.out.println("♛★★♛BICAMPEÓN♛★★♛");
+            case 3 -> System.out.println("♛★★TRICAMPEÓN♛★★♛");
+            case 4 -> System.out.println("♛★★TETRACAMPEÓN♛★★♛");
+            case 5 -> System.out.println("♛★★PENTACAMPEÓN♛★★♛");
+            default -> System.out.println("♛★★♛CAMPEÓN♛★★♛");
         }
         System.out.println(equipos.getEquipo(0).getNombre());
         System.out.println("    CLASIFICA A COPA LIBERTADORES");
