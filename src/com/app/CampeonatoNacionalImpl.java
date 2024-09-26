@@ -29,6 +29,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                         Integer.parseInt(partes[3]), Float.parseFloat(partes[4]), partes[5], 0,
                         0,0,0,0,0,0));
             }
+            scanner.close();
         } catch (Exception e){ System.out.println("Hubo un error en el archivo de equipos."); }
         try{
             File archivo = new File("Partidos.txt");
@@ -46,6 +47,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                     partidos.agregarPartido(nuevoPartido2);
                 }
             }
+            scanner.close();
         } catch (Exception e){ System.out.println("Hubo un error en el archivo de partidos."); }
         partidos.ordenarLista();
     }
@@ -380,6 +382,7 @@ public class CampeonatoNacionalImpl implements CampeonatoNacional {
                 }
             }
         }
+        scanner.close();
     }
 
     /**
